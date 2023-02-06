@@ -45,6 +45,13 @@ app.use(express.urlencoded({extended: true}));
 
 app.set('view engine', 'ejs');
 
+
+// prevent browser caching
+app.use((req, res, next)=>{
+    res.set('Cache-control', 'no-store')
+    next()
+})
+
 /**
  * -------------- DATABASE ----------------
  */
